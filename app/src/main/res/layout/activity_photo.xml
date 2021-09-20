@@ -5,7 +5,8 @@
     tools:context=".view.MainActivity">
 
     <data>
-        <import type="com.example.sample.network.Photo"/>
+
+        <import type="com.example.sample.network.Photo" />
 
         <variable
             name="photo"
@@ -19,56 +20,55 @@
 
         <TextView
             android:id="@+id/textView"
+            bindText='@{"Album ID: " + photo.albumId}'
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="aaa"
-            bindText='@{"Album ID: " + photo.albumId}'
             android:padding="16dp"
-            android:textSize="18sp"
+            android:text="aaa"
             android:textColor="@color/black"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView2"
+            bindText='@{"Photo ID: " + photo.id}'
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="aaa"
-            bindText='@{"Photo ID: " + photo.id}'
             android:padding="16dp"
-            android:textSize="18sp"
+            android:text="aaa"
             android:textColor="@color/black"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <ImageView
             android:id="@+id/iv"
+            loadImageFromUrl="@{photo.url}"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_margin="16dp"
             app:layout_constraintDimensionRatio="1"
-            app:layout_constraintStart_toStartOf="parent"
-            loadImageFromUrl="@{photo.url}"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textView2"
-            android:layout_margin="16dp"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView2" />
 
         <TextView
             android:id="@+id/textView3"
+            bindText='@{photo.title}'
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="aaa"
+            android:layout_margin="16dp"
             android:background="@color/blue"
             android:padding="16dp"
-            bindText='@{photo.title}'
-            android:layout_margin="16dp"
-            android:textSize="18sp"
+            android:text="aaa"
             android:textColor="@color/black"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/iv" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

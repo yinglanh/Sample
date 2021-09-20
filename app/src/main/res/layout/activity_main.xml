@@ -20,20 +20,20 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="User Info"
             android:padding="16dp"
-            android:textSize="18sp"
+            android:text="User Info"
             android:textColor="@color/black"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
+            bindUsers="@{viewModel.userListLiveData}"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
-            bindUsers="@{viewModel.userListLiveData}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

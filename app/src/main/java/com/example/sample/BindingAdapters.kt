@@ -10,12 +10,12 @@ import com.example.sample.adapter.RecyclerViewAdapterUser
 import com.example.sample.network.Photo
 import com.example.sample.network.User
 
-@BindingAdapter(value = ["bind:photos", "bind:id"], requireAll=true)
-fun bindPhotos(recyclerView: RecyclerView, photos: List<Photo>?, id:Int) {
-    if (!photos.isNullOrEmpty()){
+@BindingAdapter(value = ["bind:photos", "bind:id"], requireAll = true)
+fun bindPhotos(recyclerView: RecyclerView, photos: List<Photo>?, id: Int) {
+    if (!photos.isNullOrEmpty()) {
         val returnList = mutableListOf<Photo>()
-        for (photo in photos){
-            if (photo.albumId == id.toString()){
+        for (photo in photos) {
+            if (photo.albumId == id.toString()) {
                 returnList.add(photo)
             }
         }
@@ -26,19 +26,19 @@ fun bindPhotos(recyclerView: RecyclerView, photos: List<Photo>?, id:Int) {
 
 @BindingAdapter("bindUsers")
 fun bindUsers(recyclerView: RecyclerView, users: List<User>?) {
-    if (!users.isNullOrEmpty()){
+    if (!users.isNullOrEmpty()) {
         val recyclerAdapter = RecyclerViewAdapterUser(users)
         recyclerView.adapter = recyclerAdapter
     }
 }
 
 @BindingAdapter("loadImageFromUrl")
-fun ImageView.loadImageFromUrl(photo: String?){
+fun ImageView.loadImageFromUrl(photo: String?) {
     this.load(photo)
 }
 
 @BindingAdapter("bindText")
-fun TextView.bindText(text: String?){
+fun TextView.bindText(text: String?) {
     this.text = text
 }
 

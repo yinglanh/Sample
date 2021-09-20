@@ -16,7 +16,8 @@ class PhotoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
-        var binding : ActivityPhotoBindingImpl = DataBindingUtil.setContentView(this,
+        var binding: ActivityPhotoBindingImpl = DataBindingUtil.setContentView(
+            this,
             R.layout.activity_photo
         )
 

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="itemPhoto"
             type="com.example.sample.network.Photo" />
@@ -17,12 +18,12 @@
 
         <ImageView
             android:id="@+id/iv"
+            loadImageFromUrl="@{itemPhoto.thumbnailUrl}"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_margin="16dp"
-            app:layout_constraintDimensionRatio="1"
-            loadImageFromUrl="@{itemPhoto.thumbnailUrl}"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintWidth_percent=".4" />
@@ -31,15 +32,15 @@
             android:id="@+id/tv_id"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@{itemPhoto.title}"
-            android:textSize="16sp"
             android:layout_margin="8dp"
-            android:textStyle="bold"
+            android:text="@{itemPhoto.title}"
             android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/iv"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
