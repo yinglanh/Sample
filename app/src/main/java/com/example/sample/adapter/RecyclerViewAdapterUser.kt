@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
-import com.example.sample.AlbumActivity
+import com.example.sample.view.AlbumActivity
 import com.example.sample.BR
 import com.example.sample.R
 import com.example.sample.network.User

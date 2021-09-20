@@ -1,13 +1,9 @@
-package com.example.sample
+package com.example.sample.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.example.sample.MainViewModel
 import com.example.sample.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

@@ -10,10 +10,16 @@ import com.example.sample.adapter.RecyclerViewAdapterUser
 import com.example.sample.network.Photo
 import com.example.sample.network.User
 
-@BindingAdapter("bindPhotos")
-fun bindPhotos(recyclerView: RecyclerView, photos: List<Photo>?) {
+@BindingAdapter(value = ["bind:photos", "bind:id"], requireAll=true)
+fun bindPhotos(recyclerView: RecyclerView, photos: List<Photo>?, id:Int) {
     if (!photos.isNullOrEmpty()){
-        val recyclerAdapter = RecyclerViewAdapter(photos)
+        val returnList = mutableListOf<Photo>()
+        for (photo in photos){
+            if (photo.albumId == id.toString()){
+                returnList.add(photo)
+            }
+        }
+        val recyclerAdapter = RecyclerViewAdapter(returnList)
         recyclerView.adapter = recyclerAdapter
     }
 }
