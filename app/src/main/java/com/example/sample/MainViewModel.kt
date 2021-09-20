@@ -1,7 +1,7 @@
 package com.example.sample
 
-import android.graphics.Movie
 import android.util.Log
+import androidx.databinding.PropertyChangeRegistry
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -17,28 +17,26 @@ import java.io.IOException
 class MainViewModel(private val repository: Repository = Repository(ApiClient.apiService)) :
     ViewModel() {
 
-    private var _userListLiveData: MutableLiveData<User> = MutableLiveData()
-    val userListLiveData: LiveData<User>
+    private var _userListLiveData = MutableLiveData<List<User>>(emptyList())
+    private var _photoListLiveData = MutableLiveData<List<Photo>>(emptyList())
+
+    val userListLiveData: LiveData<List<User>>
         get() = _userListLiveData
-    private var _photoListLiveData: MutableLiveData<Photo> = MutableLiveData()
-    val photoListLiveData: LiveData<Photo>
+    val photoListLiveData: LiveData<List<Photo>>
         get() = _photoListLiveData
+
 
     init {
         fetchUsers()
         fetchPhotos()
     }
 
-    private fun fetchUsers() {
+    fun fetchUsers() {
         Log.e("fetchUsers()", "")
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 val client = repository.getUsers()
-                if (!client.isNullOrEmpty()){
-                    for (u in client){
-                        _userListLiveData.postValue(u)
-                    }
-                }
+                _userListLiveData.postValue(client)
             } catch (throwable: Throwable) {
                 Log.e("getUsers", throwable.toString())
                 handleThrowable(throwable)
@@ -46,16 +44,12 @@ class MainViewModel(private val repository: Repository = Repository(ApiClient.ap
         }
     }
 
-    private fun fetchPhotos() {
+    fun fetchPhotos() {
         Log.e("fetchPhotos()", "")
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 val client2 = repository.getPhotos()
-                if (!client2.isNullOrEmpty()){
-                    for (u in client2){
-                        _photoListLiveData.postValue(u)
-                    }
-                }
+                _photoListLiveData.postValue(client2)
             } catch (throwable: Throwable) {
                 Log.e("getPhotos", throwable.toString())
                 handleThrowable(throwable)
@@ -77,5 +71,4 @@ class MainViewModel(private val repository: Repository = Repository(ApiClient.ap
             }
         }
     }
-
 }

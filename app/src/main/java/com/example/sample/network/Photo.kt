@@ -11,6 +11,9 @@ data class Photo(
     @SerializedName("albumId")
     val albumId: String,
     @Expose
+    @SerializedName("title")
+    val title: String,
+    @Expose
     @SerializedName("url")
     val url: String,
     @Expose
